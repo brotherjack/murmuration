@@ -1,0 +1,6 @@
+host: 'localhost'
+adapter: 'postgresql'
+encoding: utf-8
+database: 'development'
+username_var: 'BIRB_USER'
+password_var: 'BIRB_WORD'
