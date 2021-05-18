@@ -12,6 +12,10 @@ module Murmuration
         should have_db_column(:email).of_type(:string).with_options(null: true)
         should have_db_column(:created_at).of_type(:datetime)
         should have_db_column(:updated_at).of_type(:datetime)
+
+        should validate_presence_of(:name)
+        should validate_presence_of(:public_key)
+        should validate_presence_of(:email).allow_nil
       end
 
       context 'associations' do

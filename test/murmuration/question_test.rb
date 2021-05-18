@@ -7,7 +7,6 @@ module Murmuration
 
         should belong_to(:asker).class_name(Murmuration::VotingEntity.name)
         should have_many(:votes).class_name(Murmuration::Ballot.name)
-        should validate_presence_of(:asker)
       end
 
       context 'columns' do
@@ -19,6 +18,9 @@ module Murmuration
         should have_db_column(:description).of_type(:string).with_options(null: true)
         should have_db_column(:created_at).of_type(:datetime)
         should have_db_column(:updated_at).of_type(:datetime)
+
+        should validate_presence_of(:name)
+        should validate_presence_of(:description).allow_nil
       end
     end
 

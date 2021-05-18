@@ -10,6 +10,8 @@ module Murmuration
         should have_db_column(:text).of_type(:string).with_options(null: false)
         should have_db_column(:created_at).of_type(:datetime)
         should have_db_column(:updated_at).of_type(:datetime)
+
+        should validate_presence_of(:text).on(:create)
       end
 
       context 'associations' do
