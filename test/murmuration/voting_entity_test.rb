@@ -6,14 +6,14 @@ module Murmuration
       context 'columns' do
         subject { FactoryBot.build(:voting_entity) }
 
-        should have_db_column(:id).of_type(:integer).with_options(primary: true) 
+        should have_db_column(:id).of_type(:integer).with_options(primary: true)
         should have_db_column(:name).of_type(:string).with_options(null: false)
         should have_db_column(:public_key).of_type(:string).with_options(null: false)
         should have_db_column(:email).of_type(:string).with_options(null: true)
         should have_db_column(:created_at).of_type(:datetime)
         should have_db_column(:updated_at).of_type(:datetime)
       end
-      
+
       context 'associations' do
         subject { FactoryBot.build(:voting_entity) }
 

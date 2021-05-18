@@ -16,6 +16,7 @@ module Murmuration
         subject { FactoryBot.build :choice}
 
         should belong_to(:question).required.dependent(:destroy)
+        should validate_presence_of(:question).on(:create)
       end
     end
   end
