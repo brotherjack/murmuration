@@ -3,7 +3,7 @@ require 'aasm'
 module Murmuration
   class Question < ActiveRecord::Base
     include AASM
-    include ActiveRecord::Validations
+    include ActiveModel::Model
 
     self.table_name = 'questions'
     self.primary_key = 'id'
@@ -11,9 +11,11 @@ module Murmuration
     has_many :votes,
              class_name: 'Murmuration::Ballot',
              dependent: :destroy
-    belongs_to :asker, 
+    belongs_to :asker,
                class_name: 'Murmuration::VotingEntity',
                foreign_key: 'asker_id'
+
+    validates :asker, presence: true
 
     enum status: {
       formulating: 0,
