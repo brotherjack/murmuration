@@ -15,7 +15,9 @@ module Murmuration
                class_name: 'Murmuration::VotingEntity',
                foreign_key: 'asker_id'
 
-    validates :asker, presence: true
+    validates_associated :asker
+    validates :name, presence: true
+    validates :description, presence: true, allow_nil: true
 
     enum status: {
       formulating: 0,

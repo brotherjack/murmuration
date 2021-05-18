@@ -8,5 +8,6 @@ module Murmuration
     belongs_to :question, dependent: :destroy, required: true
 
     validates :question, presence: true
+    validates :text, presence: true
   end
 end
