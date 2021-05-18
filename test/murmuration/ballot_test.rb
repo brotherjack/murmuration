@@ -6,7 +6,6 @@ module Murmuration
       context 'columns' do
         subject { FactoryBot.build(:ballot) }
 
-
         should have_db_column(:id).of_type(:integer).with_options(primary: true)
         should have_db_column(:created_at).of_type(:datetime)
         should have_db_column(:updated_at).of_type(:datetime)
